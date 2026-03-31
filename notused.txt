@@ -1,0 +1,6 @@
+print(df.head())
+print(df['Glucose'] == 0)
+print(df['BloodPressure'] == 0)
+print(df['SkinThickness'] == 0)
+print(df['Insulin'] == 0)
+print(df['BMI'] == 0)

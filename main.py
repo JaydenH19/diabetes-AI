@@ -2,12 +2,10 @@ import pandas as pd
 import numpy as np 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-
+from sklearn.metrics import accuracy_score
 
 
 df = pd.read_csv('data/diabetes.csv')
-print(df.head())
-
 
 df['Glucose'] = df['Glucose'].replace(0, np.nan) # if there is a 0 that that will be replaced with the avarege 
 df['Glucose'] = df['Glucose'].fillna(df['Glucose'].mean())
@@ -30,14 +28,17 @@ y = df['Outcome'] # Outcome
 
 X_train, X_test, y_train, y_test = train_test_split(X,y ,
                                    random_state=104, # need to dive deeper in to that 
-                                   test_size=0.25, # you do 768%100*25 
+                                   test_size=0.25, # you do 768%100*25 = 0.25
                                    shuffle=True) # shuffels the data 
 
+model = RandomForestClassifier()
+
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+score = accuracy_score(y_test, y_pred)
 
 
-
-print(df['Glucose'] == 0)
-print(df['BloodPressure'] == 0)
-print(df['SkinThickness'] == 0)
-print(df['Insulin'] == 0)
-print(df['BMI'] == 0)
+print(score)
+    
