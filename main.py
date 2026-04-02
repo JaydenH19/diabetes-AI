@@ -31,7 +31,12 @@ X_train, X_test, y_train, y_test = train_test_split(X,y ,
                                    test_size=0.25, # you do 768%100*25 = 0.25
                                    shuffle=True) # shuffels the data 
 
-model = RandomForestClassifier()
+model = RandomForestClassifier(
+    n_estimators=200,
+    max_depth=5,
+    random_state=42,
+    class_weight='balanced'
+) # if you have unbalanced data you can use that to balance it
 
 model.fit(X_train, y_train)
 
@@ -41,4 +46,4 @@ score = accuracy_score(y_test, y_pred)
 
 
 print(score)
-    
+print(y.value_counts())
