@@ -7,7 +7,7 @@ def main():
     st.write("This is a simple app to predict whether or not a person has diabetes based on their health data.")
     st.write("note this is a AI and it can make mistakes so if you are in doubt go to a dockter!") 
 
-    Glucose = st.number_input("Please enter the Glucose level:")
+    Glucose = st.number_input("Please enter the Glucose level (mg/dL):")
     BloodPressure = st.number_input("Please enter the Blood Pressure level:")
     SkinThickness = st.number_input("Please enter the Skin fold thickness (mm):")
     Insulin = st.number_input("Please enter the Insulin level:")
